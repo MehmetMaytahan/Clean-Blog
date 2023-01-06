@@ -1,14 +1,12 @@
 const express = require("express");
 const app = express();
+const path = require("path");
 const PORT = 3000;
 
+app.use(express.static("public"));
+
 app.get("/", (req, res) => {
-  const blog = {
-    id: 1,
-    title: "Blog title",
-    description: "Blog description"
-  };
-  res.json(blog);
+  res.sendFile(path.resolve(__dirname, "temp/index.html"));
 });
 
 app.listen(PORT, () => {
