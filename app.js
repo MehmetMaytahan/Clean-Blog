@@ -17,7 +17,7 @@ app.use(express.json());
 
 // ROUTES
 app.get("/", async (req, res) => {
-  const posts = await Post.find({});
+  const posts = await Post.find({}).sort("-dateCreated");
   res.render("index", { posts });
 });
 
@@ -36,6 +36,11 @@ app.get("/add", (req, res) => {
 app.post("/add", async (req, res) => {
   await Post.create(req.body);
   res.redirect("/");
+});
+
+app.get("/post/:id", async (req, res) => {
+  const post = await Post.findById(req.params.id);
+  res.render("post-detail", { post });
 });
 
 mongoose.set("strictQuery", false);
