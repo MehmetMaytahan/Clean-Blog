@@ -43,7 +43,7 @@ app.get("/post/edit/:id", editPage); // edit post page
 
 mongoose.set("strictQuery", false);
 mongoose.connect(
-  "mongodb://127.0.0.1/clean-blog-db",
+  "mongodb+srv://pcat-app:pass123@cluster0.nnkd0dq.mongodb.net/?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true

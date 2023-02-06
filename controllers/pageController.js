@@ -1,3 +1,4 @@
+const Post = require("../modals/Post");
 exports.aboutPage = (req, res) => {
   res.render("about");
 };
